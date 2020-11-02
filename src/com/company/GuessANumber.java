@@ -1,18 +1,19 @@
 package com.company;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class GuessANumber<allTries> {
     public static Scanner scan = new Scanner(System.in);
 
     // créer un nombre compris entre 0 et 100
-    public static void randomNumber() {
-        Random rand = new Random();
+    public static int randomNumber(int min, int max) {
+       /* Random rand = new Random();
         int upperbound = 101;
-        int number = rand.nextInt(upperbound);
-
+        int number = rand.nextInt(upperbound);*/
+        int number = (int) (Math.random() * ((max - min) + 1));
+        return number;
     }
+
     // choix du type de réponse par l'utilisateur
     public static void displayMenu() {
         System.out.println("Please choose your game template: ");
@@ -35,20 +36,47 @@ public class GuessANumber<allTries> {
     }
 
     public static void triesLimited() {
-        int tries = 10;
-        randomNumber();
+        int tries = 0;
+        int nombre = randomNumber(0, 100);
+        System.out.println("Guess the mysterious number");
 
 
-        while (tries <= 10 ) {
-
-
+        while (tries <= 10) {
+            int userTry = scan.nextInt();
+            if (userTry == nombre) {
+                System.out.println("You guessed right, it was : " + nombre);
+                break;
+            } else if (userTry < nombre) {
+                System.out.println("It's bigger ! ");
+            } else if (userTry > 100) {
+                System.out.println("not in the range");
+            } else {
+                System.out.println("It's smaller !");
+            }
+            tries++;
         }
+        System.out.println("You failed! ");
+        displayMenu();
+
     }
 
 
     public static void triesUnlimited() {
+        int nombre = randomNumber(0, 100);
 
-    }
+        for( int tries=0; tries!=nombre; tries++ ) {
+            int userTry = scan.nextInt();
+            if (userTry == nombre){
+                System.out.println("you guesse right !");
+                displayMenu();
+            }else if( userTry < nombre){
+                System.out.println("It's bigger!");
+            }else if(userTry > nombre){
+                System.out.println("It's smaller ! ");
+            }
+        }
+
+}
 
 
 
