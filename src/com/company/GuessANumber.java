@@ -1,15 +1,15 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
 
-public class GuessANumber<allTries> {
+public class GuessANumber {
     public static Scanner scan = new Scanner(System.in);
 
     // créer un nombre compris entre 0 et 100
     public static int randomNumber(int min, int max) {
        /* Random rand = new Random();
-        int upperbound = 101;
-        int number = rand.nextInt(upperbound);*/
+        int number = rand.nextInt(100);*/
         int number = (int) (Math.random() * ((max - min) + 1));
         return number;
     }
@@ -32,6 +32,7 @@ public class GuessANumber<allTries> {
                 GuessANumber.triesUnlimited();
             default:
                 System.out.println("Choice unknown");
+                displayMenu();
         }
     }
 
