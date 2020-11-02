@@ -13,7 +13,9 @@ public class Main {
         System.out.println("Choose your game :");
         System.out.println("0 : Guess a number");
         System.out.println("1 : Palindrome");
-        System.out.println("3 : quit");
+        System.out.println("2 : Tableau affichage");
+        System.out.println("3: démineur");
+        System.out.println("4: Quit");
 
         try {
             int userInput;
@@ -22,13 +24,15 @@ public class Main {
             switch (userInput){
                 case 0 : GuessANumber.displayMenu();
                 case 1 : Palindrome.enterWord();
-                case 3 : break;
+                case 2 :
+                    int[] array1 = Tableau.enterTableau(5);
+                case 3 : Demineur.beguining();
+                case 4 : break;
                 default:
                     System.out.println("Commande inconnue");
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println("format inconnu");
         }
     }
