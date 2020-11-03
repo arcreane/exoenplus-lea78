@@ -6,6 +6,14 @@ import java.util.Scanner;
 public class Tableau {
     public static Scanner scanArray = new Scanner(System.in);
 
+    public static void debut() {
+        int rangeNumber = 10;
+
+        System.out.println("Entrer votre 1er tableau :");
+        int[] array1 = enterTableau(5);
+
+    }
+
     public static int[] enterTableau(int limite){
         System.out.println("Composons votre tableau:");
         int [] array = new int[limite];
@@ -23,12 +31,9 @@ public class Tableau {
 
         return array;
     }
+    public static void verifiedArray(){
 
-    private static void printArray(int[] arrayType) {
-        int lenghtArray = arrayType.length;
-        for (int j = 0; j < lenghtArray; j++) {
-            System.out.print(arrayType[j]+ " ");
-        }
     }
+
 
 }
